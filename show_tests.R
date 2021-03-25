@@ -1,3 +1,5 @@
+source("utils.R")
+
 test_names <- list("HD0" = "Musikalische Hörtests",
                    "BAT" = c("name" = "Beatwahrnehmungs-Test", 
                              "git_repo" = "https://github.com/pmcharrison/cabat", 
