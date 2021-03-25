@@ -100,7 +100,7 @@ static_selection_page <-function(){
     
   }
   else{
-    base_url <- "https://testing.musikpsychologie.de/dots_demo/"
+    base_url <- "http://testing.musikpsychologie.de/dots_demo/"
     
   }
   body_text <- 
