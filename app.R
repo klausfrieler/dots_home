@@ -1,4 +1,5 @@
 library(shiny)
+source("utils.R")
 
 b <- function(...){
   shiny::tags$b(...)
@@ -30,7 +31,7 @@ ui <- fluidPage(
       tabsetPanel(type = "tabs",
                   tabPanel("Start", htmlOutput("home")),
                   tabPanel("Tests", htmlOutput("tests")),
-                  tabPanel("Anleitung", htmlOutput("manual")),
+                  tabPanel("Services", htmlOutput("services")),
                   tabPanel("Veröffentlichungen", htmlOutput("publications"))
         
       )
@@ -45,10 +46,11 @@ server <- function(input, output) {
     includeHTML("home.html")
   })
   output$tests <- renderUI({
-    includeHTML("tests.html")
+    static_selection_page()
+    #includeHTML("tests.html")
   })
-  output$manual <- renderUI({
-    includeHTML("manual.html")
+  output$services <- renderUI({
+    includeHTML("services.html")
   })
   
   output$publications <- renderUI({

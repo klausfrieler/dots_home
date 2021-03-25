@@ -77,6 +77,21 @@ test_names <- list("HD0" = "Musikalische Hörtests",
                              "ref_paper" = ""), 
                    "NA" = "")
 
+get_test_name <- function(test_id){
+  tmp <- test_names[[test_id]]
+  if("names" %in% names(tmp)){
+    return(tmp[["name"]])
+  }
+}
+
+get_test_prop <- function(test_id, prop){
+  tmp <- test_names[[test_id]]
+  if(prop %in% names(tmp)){
+    return(tmp[[prop]])
+  }
+  tmp
+}
+
 static_selection_page <-function(){
   if(local_debug){
     base_url <- "http://127.0.0.1:3973/"
@@ -91,7 +106,7 @@ static_selection_page <-function(){
       #browser()
       if(substr(tn, 1, 2) == "HD"){
         shiny::p(
-          shiny::tags$b(test_names[tn], style = "text-align:left;"), style = "text-align:left; margin-left:20%;margin-top:30px;"
+          shiny::tags$b(test_names[tn], style = "text-align:left;"), style = "text-align:left; margin-left:0%;margin-top:30px;"
         )
       }
       else{
@@ -113,7 +128,7 @@ static_selection_page <-function(){
                                                 style = "color:#f47920;text-decoration:none"),
               style = "font-size:10pt;margin-left:5pt"
             ),
-            style = "text-align:left; margin-left:20%")
+            style = "text-align:left; margin-left:0%")
           
         }
         else{
