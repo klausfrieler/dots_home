@@ -34,6 +34,7 @@ ui <- fluidPage(
                   tabPanel("Über", htmlOutput("about")),
                   tabPanel("Tests", htmlOutput("tests")),
                   tabPanel("Services", htmlOutput("services")),
+                  tabPanel("FAQ", htmlOutput("faq")),
                   tabPanel("Team", htmlOutput("team")),
                   tabPanel("Veröffentlichungen", htmlOutput("publications"))
         
@@ -57,6 +58,10 @@ server <- function(input, output) {
   })
   output$services <- renderUI({
     includeHTML("services.html")
+  })
+
+  output$faq <- renderUI({
+    includeHTML("faq.html")
   })
   
   output$publications <- renderUI({
