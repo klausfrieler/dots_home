@@ -9,6 +9,7 @@ unicode_to_html_entity <- function(x){
   paste0(sprintf("&#%d;", sapply(xs, utf8ToInt)), collapse="")
 }
 
+read_test_info()
 
 # Define UI for data upload app ----
 ui <- fluidPage(

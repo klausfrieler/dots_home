@@ -84,6 +84,22 @@ test_names <- list("HD0" = "Musikalische Hörtests",
                    
                    "NA" = "")
 
+read_test_info <- function(){
+  test_info <- readxl::read_xlsx("data/longgold_codebook_new.xlsx") %>% 
+    mutate(name =  toupper(name)) %>%  
+    filter(is.na(scale_family) | scale_family == "parent") %>% 
+    distinct(name, info_de, name_full, .keep_all = F) %>% #
+    filter(!is.na(info_de))
+  assign("test_info", test_info, globalenv())
+}
+
+get_info <-function(test_name){
+  tmp <- test_info %>% filter(name == test_name)
+  if(nrow(tmp) == 0){
+    return("")
+  }
+  return(tmp %>% pull(info_de))
+}
 get_test_name <- function(test_id){
   tmp <- test_names[[test_id]]
   if("names" %in% names(tmp)){
@@ -129,6 +145,8 @@ static_selection_page <-function(){
           if(tn == "HALT"){
             href <- sprintf("%s/%s", dots_url, tn)
           }
+          #browser()
+          info <- shiny::span(get_info(tn), style = "font-size:small")
           shiny::p(
             shiny::a(href = href, target = "_blank", get_test_prop(tn, "name")), 
             
@@ -143,6 +161,8 @@ static_selection_page <-function(){
                                                 style = "color:#f47920;text-decoration:none"),
               style = "font-size:10pt;margin-left:5pt"
             ),
+            #get_info(tn),
+            info,
             style = "text-align:left; margin-left:0%")
           
         }
