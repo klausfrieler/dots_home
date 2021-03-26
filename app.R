@@ -20,7 +20,7 @@ ui <- fluidPage(
               img(src = "https://s3-eu-west-1.amazonaws.com/media.dots.org/img/dots_logo_v4.png", height = "76", style = "margin-right:20px"),
                "DGM Online Testing Server", style = "color:#5c9dd1",             
                img(src = "https://s3-eu-west-1.amazonaws.com/media.dots.org/img/dgm_logo_v2.png", height = "49", style = "margin-left:20px")
-            )
+            ), windowTitle = "DOTS Home"
            )),
 
   # Sidebar layout with input and output definitions ----
