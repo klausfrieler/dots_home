@@ -28,10 +28,12 @@ ui <- fluidPage(
     
     # Main panel for displaying outputs ----
     column(6, offset = 3,
-      tabsetPanel(type = "tabs",
+      tabsetPanel(type = "tabs", id = "dots",
                   tabPanel("Start", htmlOutput("home")),
+                  tabPanel("Über", htmlOutput("about")),
                   tabPanel("Tests", htmlOutput("tests")),
                   tabPanel("Services", htmlOutput("services")),
+                  tabPanel("Team", htmlOutput("team")),
                   tabPanel("Veröffentlichungen", htmlOutput("publications"))
         
       )
@@ -45,6 +47,9 @@ server <- function(input, output) {
   output$home <- renderUI({
     includeHTML("home.html")
   })
+  output$about <- renderUI({
+    includeHTML("about.html")
+  })
   output$tests <- renderUI({
     static_selection_page()
     #includeHTML("tests.html")
@@ -55,6 +60,9 @@ server <- function(input, output) {
   
   output$publications <- renderUI({
     includeHTML("publications.html")
+  })
+  output$team <- renderUI({
+    includeHTML("team.html")
   })
   
 }
