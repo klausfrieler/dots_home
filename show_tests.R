@@ -84,8 +84,8 @@ test_names <- list("HD0" = "Musikalische Hörtests",
                    
                    "NA" = "")
 
-read_test_info <- function(){
-  test_info <- readxl::read_xlsx("data/longgold_codebook_new.xlsx") %>% 
+read_test_info <- function(fname = "data/longgold_codebook_new.xlsx"){
+  test_info <- readxl::read_xlsx(fname) %>% 
     mutate(name =  toupper(name)) %>%  
     filter(is.na(scale_family) | scale_family == "parent") %>% 
     distinct(name, info_de, name_full, .keep_all = F) %>% #
