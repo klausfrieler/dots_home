@@ -71,7 +71,7 @@ test_names <- list("HD0" = "Musikalische Hörtests",
                    "GRT" = c("name" = "Durchhaltevermögensskala für Kinder",
                              "git_repo"  = "https://github.com/fmhoeger/psyquest",
                              "ref_paper" = ""), 
-                   "SMP" = c("name" = "Kurzer Test zu musikalischen Präferenzen",
+                   "MUS" = c("name" = "Kurzer Test zu musikalischen Präferenzen",
                              "git_repo"  = "https://github.com/fmhoeger/psyquest",
                              "ref_paper" = ""), 
                    "TPI" = c("name" = "10-Item Persönlichkeitsinventar",
@@ -84,12 +84,12 @@ test_names <- list("HD0" = "Musikalische Hörtests",
                    
                    "NA" = "")
 
-read_test_info <- function(fname = "data/longgold_codebook_new.xlsx"){
+read_test_info <- function(fname = "data/dots_test_def.xlsx"){
   test_info <- readxl::read_xlsx(fname) %>% 
     mutate(name =  toupper(name)) %>%  
-    filter(is.na(scale_family) | scale_family == "parent") %>% 
-    distinct(name, info_de, name_full, .keep_all = F) %>% #
-    filter(!is.na(info_de))
+    filter(type != "subscale", !(name %in% c("LIE", "SSS"))) %>% 
+    distinct(name, description_de, name_full_de, .keep_all = F) %>% #
+    filter(!is.na(description_de))
   assign("test_info", test_info, globalenv())
 }
 
@@ -98,7 +98,7 @@ get_info <-function(test_name){
   if(nrow(tmp) == 0){
     return("")
   }
-  return(tmp %>% pull(info_de))
+  return(tmp %>% pull(description_de))
 }
 get_test_name <- function(test_id){
   tmp <- test_names[[test_id]]

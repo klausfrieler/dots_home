@@ -4,28 +4,31 @@
     
     <h3>Allgemeines</h3>
     <p>Das Hauptaufgabengebiet von DOTS ist das Hosting von individuell zusamengestellten Testbatterien. Ein weiteres
-    Angebot ist die programmatischer Umsetzung neuer Tests mit dem <code>psychTestR</code>, dies kann auch die 
-    Re-Implementierung historischer Test umfassen, was zu Lehrzwecken von Interesse ist.
+    Angebot ist die programmatischer Umsetzung neuer Tests mit dem <code>psychTestR</code>-Framework, dies kann
+    auch die Re-Implementierung historischer Test umfassen, was zu Lehrzwecken von Interesse ist.
     </p>
     
     <h3>Einrichtung einer Testbatterie</h3>
     <p>
       
-    Um eine Testbatterie auf DOTS laufen zu lassen, genügt es, sich eine Batterie aus den verfügbaren Tests zusammen zu
-    stellen und die Wünsche der Einrichter (Klaus Frieler) mittzuteilen. Dieser wird in Absprache die 
-    Batterie aufsetzen und freischalten. Die Laufzeit kann individuell vereinbart werden. Dieser Service ist 
-    kostenfrei, allerdings behält sich die DGM vor, bei sehr hohem Teilnehmeraufkommen ggf. einen anteiligen 
-    Unkostenbeitrag zu fordern. 
-    Die Details werden individuell vereinbart. 
-    Bei Studien mit bis zu mehrern 100 Teilnehmer sollte dies aber kein Problem sei. 
+    Um eine Testbatterie auf DOTS laufen zu lassen, genügt es, sich eine Batterie aus den verfügbaren Tests 
+    zusammenzustellen und die Wünsche den Einrichtern mittzuteilen. Diese werden in Absprachee die 
+    Testbatterie aufsetzen und freischalten. Die Laufzeit kann individuell vereinbart werden. Dieser Service ist 
+    kostenfrei für DGM-Mitglieder, allerdings behält sich die DGM vor, bei sehr hohem Teilnehmeraufkommen ggf. einen
+    anteiligen Unkostenbeitrag zu fordern. Nicht-Mitglieder sprechen uns bitte an, sicherlich lässt sich eine Lösung
+    finden.
+    Die Details werden jeweils individuell vereinbart. 
+    Bei Studien mit bis zu mehreren 100 Teilnehmer sollte dies aber kein Problem sei. 
     (Der DOTS läuft zunächst bis zur nächsten Mitgliederversammlung der DGM als Pilotprojekt, d.h. diese Konditionen 
-    können sich evtl. später noch ändern.)
+    können sich evtl. noch ändern.)
     </p>
     <p>
       Oft ist eine Integration einer <code>psychTestR</code>-Testbatterie mit individuellen Fragebögen 
       gewünscht. Wenn diese
-      Fragebögen nicht von allgemeinen Interesse sind, lohnt sich keine eigene <code>psychTestR</code>. In diesem Fall
-      kann eine Batterie über spezielle Links auch mit einem Fragebogen auf einer der ghöngigen Plattformen verknüpft
+      Fragebögen nicht von allgemeinen Interesse sind, lohnt sich keine eigene <code>psychTestR</code>
+      Implementierung. In diesem Fall
+      kann eine Batterie über spezielle Links auch mit einem Fragebogen auf einer der gängigen Plattformen 
+      verknüpft
       werden. Auch dabei beraten wir Sie gern. 
     </p>
     <p>
@@ -35,20 +38,20 @@
     <p>
       <b>Keine Kosten!</b> (für DGM-Mitglieder).
     </p>
-    <h3>Erstellung einer psychTestR-basierten Tests oder Fragebogen</h3>
+    <h3>Erstellung eines <code>psychTestR</code>-basierten Tests oder Fragebogen</h3>
     <p>
     Wenn Sie einen eigenen Hörtest oder Fragebogen entwickeln, kann es für Sie interessant sein, eine 
     <code>psychTestR</code>-Implementation zu erstellen. Dies könnten Sie selber machen, oder, falls das zu 
-    viel Aufwand ist oder aus anderen Gründen nicht möglich, können Sie sich auch an uns wenden. Wir haben ein 
+    viel Aufwand ist oder aus anderen Gründen nicht möglich ist, können Sie sich auch an uns wenden. Wir haben ein 
     Team von erfahrenen Entwicklern, die gerne die Implementation in enger Zusammenarbeit mit Ihnen übernehmen. 
     Die Vorteile einer solchen Umsetzung liegen auf der Hand:   
     <ul>
       <li>
         Offizielle Referenzimplementation, z.B. als Begleitung für ein Paper
       </li>
-      <li>Freie ZUrverfügungstellung Ihres Testinstruments für interessierte Forscher:innen</li>
-      <li>Beitrag zum DOTS Test Pool</li>
-      <li>Unterstützung von OpenScience und Testingmethoden</li>
+      <li>Freie Zurverfügungstellung Ihres Testinstruments für interessierte Forscher:innen</li>
+      <li>Beitrag zum DOTS-Testpool</li>
+      <li>Unterstützung von Open Science</li>
       <li>Größere Sicherheit, dass Ihr Testinstrument von anderen korrekt angewandt wird</li>
       <li>Ruhm und Ehre</li>
     </ul>
@@ -57,7 +60,7 @@
       Falls Sie überlegen, eine solche Referenziplementation von uns entwicklen zu lassen, kontaktieren Sie einfach
       unseren Entwicklungsleiter <a href="mailto:kf@omniversum.de">Klaus Frieler</a>, und wir kommen ins Gespräch. 
       Aufgrund des relative hohen Aufwands einer solchen Implementation, kann dieser Service leider nicht kostenfrei 
-      angeboten werden, planen Sie also ein entsprechendes Budget in ihren nächsten DFG-Antrag mit ein. 
+      angeboten werden, planen Sie also ein entsprechendes Budget in ihren nächsten Forschungsantrag mit ein. 
     </p>
     <p>
       <b>Kosten nach Vereinbarung.</b>
@@ -65,12 +68,12 @@
     <h3>Hosting von Shiny-Apps</h3>
     <p>
       Da es sich um einen Shiny-Server handelt, können nicht nur Tests gehostet werden, sondern auch andere Formen
-      von Shiny-App, wie zum Beispiel zur Konfiguration von komplexen Tests 
+      von Shiny-Apps, wie zum Beispiel zur Konfiguration von komplexen Tests 
       (z.B. der <a href = "http://testing.musikpsychologie.de/HALTConfig" target = "_blank">HALT Configurator</a>, oder
       der
       <a href = "https://shiny.gold-msi.org/"  target = "_blank">Gold-MSI Configurator</a>) 
-      oder auch zur Datenauswertung/visualisierung.
-      Falls Sie eine Shiny-App hosten  lassen wollen oder Hilfe bei der Entwicklung gewünscht ist, sprechen Sie
+      oder auch zur Datenauswertung und -visualisierung.
+      Falls Sie eine Shiny-App hosten lassen wollen oder Hilfe bei der Entwicklung gewünscht ist, sprechen Sie
       uns einfach an.
     </p>
     <p>

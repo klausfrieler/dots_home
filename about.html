@@ -9,38 +9,39 @@
       liegen auf der Hand und müssen hier nicht weiter erläutert werden. Typischerweise legt eine Forscher:in
       zu diesem Zwecke einen entsprechenden handgemachten Fragebogen bei einem der bekannten Anbieter 
       (z.B. SoSci-Survey, Qualtrics, Lime-Survey)
-      an. Oft wiederholen sich aber gewisse Elemente in diesen Frageboögen, wie etwa demographische Angaben, 
+      an. Oft wiederholen sich aber gewisse Elemente in diesen Fragebögen, wie etwa demographische Angaben, 
       die Big Five, oder -- gerade
       in musikpsychologischen Experimenten -- der Gold Musical Sophistication Index (Gold-MSI). 
       Da die Modularisierung bei 
       den gängigen Umfragenanbietern nur mangelhaft ausgebaut ist, heißt das oft Re-Implementation bei jedem 
-      neuen Online-Test. 
+      neuen Onlinetest. 
       Des Weiteren kann man sich nicht
       immer sicher sein, ob man bei der händischen Implementierung eines standardisierten Messinstruments alles 
       korrekt gemacht hat oder das Scoring bei der Auswertung immer perfekt hinbekommt, das dies oft nur schwer zu 
       überprüfen ist.
       Wenn man zudem noch Hörtest einbauen oder die Umfrage in mehreren Sprachen anbieten will, wird der Aufwand
-      schnell umfangreich, so dass oft auf Dinge, die eigentlich wünschenswert und wichtig wären, verzichtet wird.
-      
+      schnell umfangreich, so dass vielleicht manchmal auf Dinge, die eigentlich wünschenswert und wichtig 
+      wären, verzichtet wird.
       </p>
         <p>
         Aus diesem Grunde wäre es vorteilhaft, sofort verfügbare, getestete und mehrsprachige 
         Testkomponenten zur Verfügung zu haben, die man schnell und sicher in eine Umfrage oder Experiment 
         einbauen kann. Genau an dieser Stelle kommt die Online Testing
         Plattform der DGM ins Spiel. Im Rahmen der LongGold-Studie (unter Leitung von Daniel Müllensiefen), 
-        die   longitudinale Tests in Schulen in Deutschland und Großbritannien mit vielen Teilnehmern, durchführt, ist
+        die longitudinale Tests in Schulen in Deutschland und Großbritannien mit vielen Teilnehmern, durchführt, ist
         deswegen ein Framework, <code>psychTestR</code>, zu Erstellung von modularisierten, standardisierten 
         und internationalisierten Tests entstanden, das genau diese Vorzüge bietet. 
         Zudem sind viele der Hörtests als adaptive Test umgesetzt, was die Tests bei gleicher Validität und 
         Reliabilitat kürzer machen kann.  
       </p>
         <p>
-        Das <code>psychTestR</code> Framework (entwickelt von Peter Harrison) basiert auf der R 
+        Das <code>psychTestR</code>-Framework (entwickelt von Peter Harrison) basiert auf der R 
         und Shiny und erlaubt die
-        Umsetzung von standardisierten Test und Fragebögen. Im Laufe des LongGold-Projektes sind auf dieser Grundlage
-        einige Test und Fragebögen entstanden, die (fast) alle als frei verfügbare OpenSource R Packages der
+        Umsetzung von standardisierten Test und Fragebögen. Im Rahmen des 
+        <a href="https://longgold.org/">LongGold-Projektes</a> sind auf dieser Grundlage
+        einige Test und Fragebögen entstanden, die (fast) alle als frei verfügbare OpenSource R-Packages der
         Öffentlichkeit zur Verfügung gestellt wurden. Diese erlauben es, modular Testbatterien zusammenzustellen, 
-        die sowohl lokal, etwa auf einem Laborrechner, wie auch online, auf eine Server laufen  können. 
+        die sowohl lokal, etwa auf einem Laborrechner, wie auch online, auf einem Server laufen  können. 
         Da der Onlineeinsatz einen Shiny-Server erfordert, der aber nicht jedem zur Verfügung steht, wurde 
         DOTS ins Leben gerufen, von dem eine Pilotversion hier nun vorliegt.
       </p>
