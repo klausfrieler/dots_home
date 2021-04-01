@@ -35,8 +35,8 @@ ui <- fluidPage(
                   tabPanel("Tests", htmlOutput("tests")),
                   tabPanel("Services", htmlOutput("services")),
                   tabPanel("FAQ", htmlOutput("faq")),
-                  tabPanel("Team", htmlOutput("team")),
-                  tabPanel("Veröffentlichungen", htmlOutput("publications"))
+                  tabPanel("Team", htmlOutput("team"))
+#                  , tabPanel("Veröffentlichungen", htmlOutput("publications"))
         
       )
     )
@@ -53,7 +53,8 @@ server <- function(input, output) {
     includeHTML("about.html")
   })
   output$tests <- renderUI({
-    static_selection_page()
+    shiny::div(static_selection_page(),
+      shiny::p("", style = "margin-bottom:50px"))
     #includeHTML("tests.html")
   })
   output$services <- renderUI({
