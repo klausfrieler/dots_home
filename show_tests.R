@@ -146,7 +146,7 @@ static_selection_page <-function(){
           git_repo <- get_test_prop(tn, "git_repo")
           ref_paper <- get_test_prop(tn, "ref_paper")
           if(tn == "HALT"){
-            href <- sprintf("%s/%s", dots_url, tn)
+            href <- sprintf("%s/%s/?language=de", dots_url, tn)
           }
           #browser()
           info <- shiny::span(get_info(tn), style = "font-size:small;text-align:justify")
