@@ -19,7 +19,7 @@ ui <- fluidPage(
          titlePanel(
             h1(
               img(src = "https://s3-eu-west-1.amazonaws.com/media.dots.org/img/dots_logo_v4.png", height = "76", style = "margin-right:20px"),
-               "DGM Online Testing Server", style = "color:#5c9dd1",             
+               "DGM Online Testing Server", style = "color:#5c9dd1;overflow:hidden",             
                img(src = "https://s3-eu-west-1.amazonaws.com/media.dots.org/img/dgm_logo_v2.png", height = "49", style = "margin-left:20px")
             ), windowTitle = "DOTS Home"
            )),
@@ -28,7 +28,7 @@ ui <- fluidPage(
   fluidRow(
     
     # Main panel for displaying outputs ----
-    column(6, offset = 3,
+    column(6, offset = 3, 
       tabsetPanel(type = "tabs", id = "dots",
                   tabPanel("Start", htmlOutput("home")),
                   tabPanel("Über", htmlOutput("about")),

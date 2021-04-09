@@ -149,7 +149,7 @@ static_selection_page <-function(){
             href <- sprintf("%s/%s/?language=de", dots_url, tn)
           }
           #browser()
-          info <- shiny::span(get_info(tn), style = "font-size:small;text-align:justify")
+          info <- shiny::span(get_info(tn), style = "font-size:small;text-align:justify;")
           shiny::p(
             shiny::a(href = href, target = "_blank", get_test_prop(tn, "name")), 
             
@@ -166,7 +166,7 @@ static_selection_page <-function(){
             ),
             #get_info(tn),
             info,
-            style = "text-align:justify; margin-left:0%")
+            style = "text-align:justify; margin-left:0%;width:100%;max-width:700px;")
           
         }
         else{
