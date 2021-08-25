@@ -19,6 +19,9 @@ test_names <- list("HD0" = "Musikalische Hörtests",
                    "EDT" = c("name" = "Emotionenunterscheidungs-Test",
                              "git_repo" = "https://github.com/klausfrieler/EDT",
                              "ref_paper" = "https://www.frontiersin.org/articles/10.3389/fpsyg.2019.01955/full"),
+                   "HPT" = c("name" = "Dreiklangsfolgen-Test",
+                             "git_repo" = "https://github.com/klausfrieler/HPT",
+                             "ref_paper" = ""),
                    
                    "HD1"  = "Nicht-musikalische Leistungstests",
                    #"MIQ" = "Cognitive Puzzles Test",
@@ -28,6 +31,15 @@ test_names <- list("HD0" = "Musikalische Hörtests",
                    "BDS" = c("name" = "Backward Digit Span Arbeitsgedächtnis-Test",
                              "git_repo" = "https://github.com/klausfrieler/BDS",
                              "ref_paper" = ""),
+                   "SRS" = c("name" = "Sprachrhythmus-Test",
+                             "git_repo" = "https://github.com/klausfrieler/mpipoet",
+                             "ref_paper" = ""),
+                   "SLS" = c("name" = "Salzburger-Lese-Screening",
+                             "git_repo" = "https://github.com/klausfrieler/mpipoet",
+                             "ref_paper" = ""),
+                   "ART" = c("name" = "Literatenquiz",
+                             "git_repo"  = "https://github.com/klausfrieler/mpipoett",
+                             "ref_paper" = ""), 
                    "HD2" = "Selbstauskunftsfragebögen zu musikalischen und anderen Aktivitäten",
                    "GMS" = c("name" = "Goldsmiths Musical Sophistication Index",
                              "git_repo" = "https://github.com/fmhoeger/psyquest",
@@ -43,6 +55,27 @@ test_names <- list("HD0" = "Musikalische Hörtests",
                              "ref_paper" = ""), 
                    "PAC" = c("name" = "Fragebogen zu sportlichen Aktivitäten",
                              "git_repo"  = "https://github.com/fmhoeger/psyquest",
+                             "ref_paper" = ""), 
+                   "IMI" = c("name" = "Fragebogen zu Ohrwürmern",
+                             "git_repo"  = "https://github.com/klausfrieler/psyquest",
+                             "ref_paper" = "https://www.gold.ac.uk/music-mind-brain/imis/"), 
+                   "EWE" = c("name" = "Fragebogen zum Ohrwurmerleben",
+                             "git_repo"  = "https://github.com/klausfrieler/psyquest",
+                             "ref_paper" = ""), 
+                   "JIW" = c("name" = "Selbseinschätzung von Jazz-Improvisationsfähigkeiten",
+                             "git_repo"  = "https://github.com/klausfrieler/psyquest",
+                             "ref_paper" = ""), 
+                   "JIC" = c("name" = "Fragebogen zur Jazz Improvisation",
+                             "git_repo"  = "https://github.com/klausfrieler/psyquest",
+                             "ref_paper" = ""), 
+                   "FSR" = c("name" = "Rheinberg et al.s Flow Short Scale",
+                             "git_repo"  = "https://github.com/klausfrieler/psyquest",
+                             "ref_paper" = "http://www.psych.uni-potsdam.de/people/rheinberg/messverfahren/Flow-FKS.pdf"), 
+                   "FSS" = c("name" = "Fragebogen zm Flowerleben",
+                             "git_repo"  = "https://github.com/klausfrieler/psyquest",
+                             "ref_paper" = ""), 
+                   "GDS" = c("name" = "Goldsmiths Dance Sophistication Index",
+                             "git_repo"  = "https://github.com/klausfrieler/psyquest",
                              "ref_paper" = ""), 
                    "HD3" = "Selbstauskunftsfragebogen zu psychosozialen Faktoren",
                    "DEG" = c("name" = "Basisdemographische Angaben",
@@ -80,10 +113,23 @@ test_names <- list("HD0" = "Musikalische Hörtests",
                    "TPI" = c("name" = "10-Item Persönlichkeitsinventar",
                              "git_repo"  = "https://github.com/fmhoeger/psyquest",
                              "ref_paper" = ""),
+                   "BFI" = c("name" = "15-Item Persönlichkeitsinventar (BFI)",
+                             "git_repo"  = "https://github.com/klausfrieler/mpipoet",
+                             "ref_paper" = ""), 
+                   "BFA" = c("name" = "Persönlichkeitsinventar Aspekte der Offenheit",
+                             "git_repo"  = "https://github.com/klausfrieler/mpipoet",
+                             "ref_paper" = ""), 
+                   "ARA" = c("name" = "Fragebogen zur Ästhetischen Wertschätzung (AReA)",
+                             "git_repo"  = "https://github.com/klausfrieler/mpipoet",
+                             "ref_paper" = "https://doi.apa.org/doiLanding?doi=10.1037%2Faca0000348"), 
                    "HD4" = "Verschiedene",
                    "HALT" = c("name" = "Kopfhörer und Lautsprecher Test (HALT)",
                              "git_repo"  = "https://github.com/klausfrieler/HALT",
                              "ref_paper" = ""),
+                   "HD5" = "Historische Tests",
+                   "SMT" = c("name" = "Seashore Test of Musical Talents",
+                              "git_repo"  = "https://github.com/klausfrieler/SMT",
+                              "ref_paper" = ""),
                    
                    "NA" = "")
 
@@ -120,8 +166,8 @@ get_test_prop <- function(test_id, prop){
 
 static_selection_page <-function(){
   if(local_debug){
-    base_url <- "http://127.0.0.1:3973/dots_demo"
-    dots_url <- "http://127.0.0.1:3973"
+    base_url <- "http://127.0.0.1:5362/dots_demo"
+    dots_url <- "http://127.0.0.1:5362"
     
   }
   else{
@@ -147,6 +193,9 @@ static_selection_page <-function(){
           ref_paper <- get_test_prop(tn, "ref_paper")
           if(tn == "HALT"){
             href <- sprintf("%s/%s/?language=de", dots_url, tn)
+          }
+          if(tn == "SMT"){
+            href <- sprintf("%s/seashore/?language=de", dots_url)
           }
           #browser()
           info <- shiny::span(get_info(tn), style = "font-size:small;text-align:justify;")
