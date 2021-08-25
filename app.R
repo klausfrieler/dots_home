@@ -36,6 +36,7 @@ ui <- fluidPage(
                   tabPanel("Tests", htmlOutput("tests")),
                   tabPanel("Services", htmlOutput("services")),
                   tabPanel("Umfragen", htmlOutput("studies")),
+                  tabPanel("Shiny Apps", htmlOutput("shiny_apps")),
                   tabPanel("FAQ", htmlOutput("faq")),
                   tabPanel("Team", htmlOutput("team"))
 #                  , tabPanel("Veröffentlichungen", htmlOutput("publications"))
@@ -64,6 +65,9 @@ server <- function(input, output) {
   })
   output$studies <- renderUI({
     includeHTML("studies.html")
+  })
+  output$shiny_apps <- renderUI({
+    includeHTML("shiny_apps.html")
   })
   
   output$faq <- renderUI({
