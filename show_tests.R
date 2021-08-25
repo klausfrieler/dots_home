@@ -127,7 +127,7 @@ test_names <- list("HD0" = "Musikalische Hörtests",
                              "git_repo"  = "https://github.com/klausfrieler/HALT",
                              "ref_paper" = ""),
                    "HD5" = "Historische Tests",
-                   "SMT" = c("name" = "Seashore Test of Musical Talents",
+                   "SMT" = c("name" = "Seashore Measures of Musical Talents",
                               "git_repo"  = "https://github.com/klausfrieler/SMT",
                               "ref_paper" = ""),
                    
