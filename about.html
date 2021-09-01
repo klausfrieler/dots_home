@@ -5,13 +5,15 @@
         
         <p>
         Online-Experimente werden in der Psychologie nicht nur in Pandemiezeiten immer wichtiger. Die Vorteile liegen
-        auf der Hand: Oft legt ein/e Forscher:in einen händisch eingegebenen Fragebogen bei einem Anbieter (z. B. SoSci
-        Survey, Qualtrics, Lime-Survey) an. Dabei wiederholen sich aber gewisse Elemente in diesen Fragebögen, wie etwa
-        demographische Angaben, die Big Five, oder der <a href="https://shiny.gold-msi.org/" target = "blank">
-          Goldsmiths Musical Sophistication Index</a> (Gold-MSI). Da die Modularisierung bei vielen Umfragenanbietern 
+        auf der Hand: Oft legt ein Forscher oder eine Forscherin einen 
+        händisch eingegebenen Fragebogen bei einem Anbieter (z.&nbsp;B. SoSci
+        Survey, Qualtrics oder Lime-Survey) an. 
+        Dabei wiederholen sich aber gewisse Elemente in diesen Fragebögen, wie etwa
+        demografische Angaben, die Big Five, oder der <a href="https://shiny.gold-msi.org/" target = "blank">
+          Goldsmiths Musical Sophistication Index</a> (Gold-MSI). Da die Modularisierung bei vielen Umfrageanbietern 
           nur mangelhaft ausgebaut ist,
         erfordert das in der Regel die Re-Implementation bei jedem neuen Online-Test und bei jeder Re-implementierung
-        können sich immer Fehler einschleichen, oder das Scoring falsch angelegt werden. Wenn man zudem noch Hörtests
+        können sich Fehler einschleichen, oder das Scoring kann falsch angelegt werden. Wenn man zudem noch Hörtests
         verwendet oder die Umfrage in mehreren Sprachen anbieten will, wird der Aufwand schnell umfangreich, sodass
         oft auf Dinge, die eigentlich wünschenswert und wichtig wären, verzichtet wird.       
         </p>
@@ -28,17 +30,18 @@
           target = "_blank">Peter Harrison</a>
           entwickelt. Es basiert auf <a href="https://www.r-project.org/" target = "blank">R</a> und 
           <a href="https://shiny.rstudio.com/"  target = "blank">Shiny</a>. 
-          <code>psychTestR</code> erlaubt die Umsetzung von Tests und Fragebögen und enthält als Kernfeatures 
-          Mehrsprachigkeit und effizientes Testen mit adaptiven Prozeduren. Im Verlauf des LongGold-Projektes sind 
+          Das <code>psychTestR-</code>Framework erlaubt die Umsetzung von Tests und Fragebögen und enthält 
+          als Kernfeatures Mehrsprachigkeit und effizientes Testen mit adaptiven Prozeduren. Im Verlauf des 
+          LongGold-Projekts sind 
           mit <code>psychTestR</code> eine Reihe von Tests und Fragebögen entwickelt und validiert worden, die als 
-          frei verfügbare R Pakete zur Verfügung stehen. Das macht es möglich, Testbatterien modular 
-          zusammenzustellen, die sowohl lokal (z.B. auf einem Laborrechner) wie auch online, auf einem Server 
+          frei verfügbare R-Pakete zur Verfügung stehen. Das macht es möglich, Testbatterien modular 
+          zusammenzustellen, die sowohl lokal (z.&nbsp;B. auf einem Laborrechner) wie auch online, auf einem Server 
           laufen können. Allerdings ist das Aufsetzen eines Shiny-Servers für den Onlinebetrieb nicht ganz einfach.
           Daher hat die <a href="http://www.music-psychology.de/"  target = "blank">DGM</a> 
           die Plattform DOTS ins Leben gerufen, 
-          sodass nun ein Online Testing Server für alle DGM-Mitglieder zur Verfügung steht, durch den viele s
-          chon vorhandene Tests und Fragebögen in neuen Onlinestudien einfach verwendet werden können. 
-          Neue Testinstrumente werden ständig hinzugefügt und natürlich kann man mit etwas Zeitaufwand auch selbst 
+          sodass nun ein Online Testing Server für alle DGM-Mitglieder zur Verfügung steht, durch den viele schon
+          vorhandene Tests und Fragebögen in neuen Onlinestudien einfach verwendet werden können. 
+          Neue Testinstrumente werden ständig hinzugefügt, und natürlich kann man (mit etwas Zeitaufwand) auch selbst 
           neue Instrumente in psychTestR implementieren, die dann über DOTS für die Forschungscommunity 
           zur Verfügung stehen.
         </p>
