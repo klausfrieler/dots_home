@@ -76,7 +76,10 @@ test_names <- list("HD0" = "Musikalische Hörtests",
                              "ref_paper" = ""), 
                    "GDS" = c("name" = "Goldsmiths Dance Sophistication Index",
                              "git_repo"  = "https://github.com/klausfrieler/psyquest",
-                             "ref_paper" = "https://psycnet.apa.org/fulltext/2020-80492-001.html"), 
+                             "ref_paper" = "https://psycnet.apa.org/fulltext/2020-80492-001.html"),
+                   "MES" = c("name" = "Music-Empathizing-Music-Systemizing Inventory (Short Scale)",
+                             "git_repo"  = "https://github.com/klausfrieler/psyquest",
+                             "ref_paper" = "https://www.frontiersin.org/articles/10.3389/fnbeh.2018.00153/full"),                   
                    "HD3" = "Selbstauskunftsfragebogen zu psychosozialen Faktoren",
                    "DEG" = c("name" = "Basisdemografische Angaben",
                              "git_repo"  = "https://github.com/fmhoeger/psyquest",
@@ -166,8 +169,8 @@ get_test_prop <- function(test_id, prop){
 
 static_selection_page <-function(){
   if(local_debug){
-    base_url <- "http://127.0.0.1:5362/dots_demo"
-    dots_url <- "http://127.0.0.1:5362"
+    base_url <- "http://127.0.0.1:3550/dots_demo"
+    dots_url <- "http://127.0.0.1:3550"
     
   }
   else{
