@@ -4,6 +4,7 @@ source("show_tests.R")
 b <- function(...){
   shiny::tags$b(...)
 }
+
 unicode_to_html_entity <- function(x){
   xs <- strsplit(as.character(x), "")[[1]]
   paste0(sprintf("&#%d;", sapply(xs, utf8ToInt)), collapse="")

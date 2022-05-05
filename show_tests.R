@@ -13,6 +13,9 @@ test_names <- list("HD0" = "Musikalische Hörtests",
                    "RAT" = c("name" = "Rhythmusfähigkeitstest",
                              "git_repo" = "https://github.com/klausfrieler/RAT",
                              "ref_paper" = ""),
+                   "MSA" = c("name" = "Test zu Musikalischen Szenenanalyse",
+                             "git_repo" = "https://github.com/rhake14/MSA",
+                             "ref_paper" = ""),
                    "PIT" = c("name" =" Tonvorstellungstest",
                              "git_repo" = "https://github.com/pmcharrison/piat",
                              "ref_paper" = "https://link.springer.com/article/10.1007/s00426-020-01322-3"),
@@ -125,6 +128,19 @@ test_names <- list("HD0" = "Musikalische Hörtests",
                    "ARA" = c("name" = "Fragebogen zum ästhetischen Empfinden (AReA)",
                              "git_repo"  = "https://github.com/klausfrieler/mpipoet",
                              "ref_paper" = "https://doi.apa.org/doiLanding?doi=10.1037%2Faca0000348"), 
+                   "BMR" = c("name" = "Barcelona Music Reward Fragebogen",
+                             "git_repo"  = "https://github.com/klausfrieler/psyquest",
+                             "ref_paper" = "https://doi.org/10.1037/t31533-000"), 
+                   "HSP" = c("name" = "Highly Sensitive Personality Scale",
+                             "git_repo"  = "https://github.com/klausfrieler/psyquest",
+                             "ref_paper" = "https://doi.org/10.1037/0022-3514.73.2.345"), 
+                   "HUM" = c("name" = "Healthy/Unhealty Music Scale",
+                             "git_repo"  = "https://github.com/klausfrieler/psyquest",
+                             "ref_paper" = "https://acamh.onlinelibrary.wiley.com/doi/full/10.1111/camh.12109"), 
+                   "PMS" = c("name" = "Profile of Mood Scale",
+                             "git_repo"  = "https://github.com/klausfrieler/psyquest",
+                             "ref_paper" = "https://www.researchgate.net/publication/232536671_Preliminary_evidence_for_the_reliability_and_validity_of_an_abbreviated_Profile_of_Mood_States"), 
+                   
                    "HD4" = "Verschiedene",
                    "HALT" = c("name" = "Kopfhörer und Lautsprecher Test (HALT)",
                              "git_repo"  = "https://github.com/klausfrieler/HALT",
@@ -145,13 +161,14 @@ read_test_info <- function(fname = "data/dots_test_def.xlsx"){
   assign("test_info", test_info, globalenv())
 }
 
-get_info <-function(test_name){
+get_info <- function(test_name){
   tmp <- test_info %>% filter(name == test_name)
   if(nrow(tmp) == 0){
     return("")
   }
   return(tmp %>% pull(description_de))
 }
+
 get_test_name <- function(test_id){
   tmp <- test_names[[test_id]]
   if("names" %in% names(tmp)){
