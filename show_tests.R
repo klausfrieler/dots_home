@@ -4,6 +4,9 @@ test_names <- list("HD0" = "Musikalische Hörtests",
                    "BAT" = c("name" = "Beatwahrnehmungstest", 
                              "git_repo" = "https://github.com/pmcharrison/cabat", 
                              "ref_paper" ="https://www.nature.com/articles/s41598-018-30318-8"),
+                   "BDT" = c("name" = "Beat-Drop-Test", 
+                             "git_repo" = "https://github.com/klausfrieler/BDT", 
+                             "ref_paper" ="https://link.springer.com/article/10.3758/s13414-022-02592-2"),
                    "MDT" = c("name" = "Melodieunterscheidungstest",
                              "git_repo" = "https://github.com/pmcharrison/mdt",
                              "ref_paper" = "https://www.nature.com/articles/s41598-017-03586-z"),
@@ -83,6 +86,9 @@ test_names <- list("HD0" = "Musikalische Hörtests",
                    "MES" = c("name" = "Music-Empathizing-Music-Systemizing Inventory (Short Scale)",
                              "git_repo"  = "https://github.com/klausfrieler/psyquest",
                              "ref_paper" = "https://www.frontiersin.org/articles/10.3389/fnbeh.2018.00153/full"),                   
+                   "MET" = c("name" = "Music Engagement Test",
+                             "git_repo"  = "https://github.com/klausfrieler/psyquest",
+                             "ref_paper" = "http://www.davidmgreenberg.com/wp-content/uploads/2018/11/Greenberg-Rentfrow-escom-2015-Rules-of-engagement-The-structure-of-musical-engagement-and-its-personality-underpinnings-1.pdf"), 
                    "HD3" = "Selbstauskunftsfragebogen zu psychosozialen Faktoren",
                    "DEG" = c("name" = "Basisdemografische Angaben",
                              "git_repo"  = "https://github.com/fmhoeger/psyquest",
@@ -184,7 +190,7 @@ get_test_prop <- function(test_id, prop){
   tmp
 }
 
-static_selection_page <-function(){
+static_selection_page <- function(){
   if(local_debug){
     base_url <- "http://127.0.0.1:3550/dots_demo"
     dots_url <- "http://127.0.0.1:3550"
