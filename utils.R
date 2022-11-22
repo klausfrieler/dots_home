@@ -1,5 +1,5 @@
 library(tidyverse)
-library(GMSIData)
+#library(GMSIData)
 library(psychTestR)
 
 
@@ -116,28 +116,28 @@ validate_p_id <- function(answer, ...){
 }
 
 
-register_participant <- function(study_id){
-  if(is.null(study_id)){
-    stop("Study id must be not NULL")
-  }
-  psychTestR::code_block(function(state, answer, ...) {
-    #browser()
-    p_id <- psychTestR::get_session_info(state, complete = F)$p_id %>% 
-      remove_first_character(return_all = F)
-    messagef("Register participant %s for study id %s", p_id, study_id)
-    if(!local_debug){
-      db <- GMSIData::db_connect()
-      GMSID_session_id <- GMSIData::dbNewParticipant(db,
-                                                     study_id = study_id,
-                                                     participant_id = p_id)
-      GMSIData::db_disconnect(db)
-    }
-    else{
-      GMSID_session_id <- "DUMMY_SESSION"
-    }
-    set_local("GMSID_session_id", GMSID_session_id, state)
-  })
-}
+# register_participant <- function(study_id){
+#   if(is.null(study_id)){
+#     stop("Study id must be not NULL")
+#   }
+#   psychTestR::code_block(function(state, answer, ...) {
+#     #browser()
+#     p_id <- psychTestR::get_session_info(state, complete = F)$p_id %>% 
+#       remove_first_character(return_all = F)
+#     messagef("Register participant %s for study id %s", p_id, study_id)
+#     if(!local_debug){
+#       db <- GMSIData::db_connect()
+#       GMSID_session_id <- GMSIData::dbNewParticipant(db,
+#                                                      study_id = study_id,
+#                                                      participant_id = p_id)
+#       GMSIData::db_disconnect(db)
+#     }
+#     else{
+#       GMSID_session_id <- "DUMMY_SESSION"
+#     }
+#     set_local("GMSID_session_id", GMSID_session_id, state)
+#   })
+# }
 feedback_graph_normal_curve <- function(test_name, perc_correct, x_min = 40, x_max = 160, x_mean = 100, x_sd = 15, language = "DE") {
   q <-
     ggplot2::ggplot(data.frame(x = c(x_min, x_max)), ggplot2::aes(x = x)) +
