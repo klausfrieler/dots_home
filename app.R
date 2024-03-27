@@ -1,5 +1,5 @@
 library(shiny)
-source("show_tests.R")
+source("show_tests.R", encoding = "UTF-8")
 
 b <- function(...){
   shiny::tags$b(...)
@@ -10,7 +10,8 @@ unicode_to_html_entity <- function(x){
   paste0(sprintf("&#%d;", sapply(xs, utf8ToInt)), collapse="")
 }
 
-read_test_info()
+read_test_info(fname = "data/dots_test_def.xlsx")
+test_names <- update_test_names(fname = "data/dots_test_def.xlsx", test_names) 
 
 # Define UI for data upload app ----
 ui <- fluidPage(
@@ -57,7 +58,7 @@ server <- function(input, output) {
     includeHTML("about.html")
   })
   output$tests <- renderUI({
-    shiny::div(static_selection_page(),
+    shiny::div(static_selection_page(test_names, test_info),
       shiny::p("", style = "margin-bottom:50px"))
     #includeHTML("tests.html")
   })

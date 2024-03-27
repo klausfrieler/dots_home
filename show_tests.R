@@ -161,16 +161,22 @@ test_names <- list("HD0" = "Musikalische Hörtests",
                    
                    "NA" = "")
 
-read_test_info <- function(fname = "data/dots_test_def.xlsx"){
+read_test_info <- function(fname = "data/dots_test_def.xlsx", full = F){
   test_info <- readxl::read_xlsx(fname) %>% 
     mutate(name =  toupper(name)) %>%  
-    filter(type != "subscale", !(name %in% c("LIE", "SSS"))) %>% 
-    distinct(name, description_de, name_full_de, .keep_all = F) %>% #
-    filter(!is.na(description_de))
-  assign("test_info", test_info, globalenv())
+    filter(type != "subscale", !(name %in% c("LIE", "SSS")))
+  if(!full){
+    test_info <- test_info %>% 
+      distinct(name, description_de, name_full_de, .keep_all = F) %>% #
+      filter(!is.na(description_de))
+    
+    assign("test_info", test_info, globalenv())
+    return()    
+  }
+  test_info
 }
 
-get_info <- function(test_name){
+get_info <- function(test_info, test_name){
   tmp <- test_info %>% filter(name == test_name)
   if(nrow(tmp) == 0){
     return("")
@@ -178,14 +184,27 @@ get_info <- function(test_name){
   return(tmp %>% pull(description_de))
 }
 
-get_test_name <- function(test_id){
+update_test_names <- function(fname = "data/dots_test_def.xlsx", tn = test_names){
+  tif <- read_test_info(fname, full = T) %>% select(name, name_full_de, repository, link_publication)
+  for(n in names(tn)){
+    if(n %in% tif$name){
+      tn[[n]]["git_repo"] <- tif[tif$name == n,]$repository
+      tn[[n]]["name"] <- tif[tif$name == n,]$name_full_de
+      tn[[n]]["ref_paper"] <-  tif[tif$name == n,]$link_publication      
+      tn[[n]] <- replace_na(tn[[n]], "")
+    }
+  }
+  tn 
+}
+
+get_test_name <- function(test_names, test_id){
   tmp <- test_names[[test_id]]
   if("names" %in% names(tmp)){
     return(tmp[["name"]])
   }
 }
 
-get_test_prop <- function(test_id, prop){
+get_test_prop <- function(test_names, test_id, prop){
   tmp <- test_names[[test_id]]
   if(prop %in% names(tmp)){
     return(tmp[[prop]])
@@ -193,7 +212,7 @@ get_test_prop <- function(test_id, prop){
   tmp
 }
 
-static_selection_page <- function(){
+static_selection_page <- function(test_names, test_info){
   if(local_debug){
     base_url <- "http://127.0.0.1:3550/dots_demo"
     dots_url <- "http://127.0.0.1:3550"
@@ -208,7 +227,6 @@ static_selection_page <- function(){
   dots_url <- "http://testing.musikpsychologie.de"
   body_text <- 
     map(names(test_names), function(tn){
-      #browser()
       if(substr(tn, 1, 2) == "HD"){
         shiny::p(
           shiny::tags$b(test_names[tn], style = "text-align:left;"), 
@@ -218,18 +236,17 @@ static_selection_page <- function(){
       else{
         href <- sprintf("%s?test=%s", base_url, tn)
         if("name" %in% names(test_names[[tn]])){
-          git_repo <- get_test_prop(tn, "git_repo")
-          ref_paper <- get_test_prop(tn, "ref_paper")
+          git_repo <- get_test_prop(test_names, tn, "git_repo")
+          ref_paper <- get_test_prop(test_names, tn, "ref_paper")
           if(tn == "HALT"){
             href <- sprintf("%s/%s/?language=de", dots_url, tn)
           }
           if(tn == "SMT"){
             href <- sprintf("%s/seashore/?language=de", dots_url)
           }
-          #browser()
-          info <- shiny::span(get_info(tn), style = "font-size:small;text-align:justify;")
+          info <- shiny::span(get_info(test_info, tn), style = "font-size:small;text-align:justify;")
           shiny::p(
-            shiny::a(href = href, target = "_blank", get_test_prop(tn, "name")), 
+            shiny::a(href = href, target = "_blank", get_test_prop(test_names, tn, "name")), 
             
             shiny::span(
               if(nchar(git_repo) > 0) shiny::a(href = git_repo, 
@@ -242,14 +259,14 @@ static_selection_page <- function(){
                                                 style = "color:#f47920;text-decoration:none"),
               style = "font-size:10pt;margin-left:5pt"
             ),
-            #get_info(tn),
+            #get_info(test_names, tn),
             info,
             style = "text-align:justify; margin-left:0%;width:100%;max-width:700px;")
           
         }
         else{
           shiny::p(
-            shiny::a(href = href, target = "_blank", get_test_prop(tn, "name")), 
+            shiny::a(href = href, target = "_blank", get_test_prop(test_names, tn, "name")), 
             style = "text-align:left; margin-left:20%;")
           
         }

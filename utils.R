@@ -203,7 +203,7 @@ BPB_feedback <- function(dict = psyquest::psyquest_dict) {
         results <- psychTestR::get_results(state = state, complete = TRUE, add_session_info = FALSE)
         GMS_scale_plot <- GMS_scale_plot(as_tibble(results))
         results <- as_tibble(results) %>% select(BDT.ability, BAT.ability) %>% select(!contains("q."))
-        print(results)
+        #print(results)
         #perc_correct <- sum_score/num_question
         #printf("Test: %s, Sum scores: %d, total items: %d perc_correct: %.2f", test_label, 
         #       sum_score, num_question, perc_correct)
