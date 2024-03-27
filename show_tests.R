@@ -249,6 +249,8 @@ static_selection_page <- function(test_names, test_info){
             shiny::a(href = href, target = "_blank", get_test_prop(test_names, tn, "name")), 
             
             shiny::span(
+              if(nchar(tn) > 0) shiny::span(sprintf("[%s]", tn), 
+                                            style = "text-decoration:none"),
               if(nchar(git_repo) > 0) shiny::a(href = git_repo, 
                                                target = "_blank", 
                                                "[GitHub]",
